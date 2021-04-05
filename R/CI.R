@@ -7,7 +7,7 @@
 #' @export
 CI_t <-  function (x, ci = 0.95)
 {
-
+`%>%` <- magrittr::`%>%`
   Margin_Error <- qt(ci + (1 - ci)/2, df = length(x) - 1) * sd(x)/sqrt(length(x))
   df_out <- data.frame(  sample_size=length(x), Mean=mean(x), sd=sd(x),
                          Margin_Error=Margin_Error,
@@ -28,7 +28,7 @@ CI_t <-  function (x, ci = 0.95)
 #' @export
 CI_z <-  function (x, ci = 0.95)
 {
-
+`%>%` <- magrittr::`%>%`
   standard_deviation <- sd(x)
   sample_size <- length(x)
   Margin_Error <-  abs(qnorm((1-ci)/2))* standard_deviation/sqrt(sample_size)
